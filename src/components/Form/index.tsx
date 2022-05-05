@@ -46,7 +46,24 @@ export function Form({ feedbackType, onFeedbackCancelled, onFeedbackSubmitted }:
   }
 
   async function handleFeedbackSubmit() {
-    onFeedbackSubmitted();
+    if (isSendingFeedback) return;
+
+    setIsSendingFeedback(true);
+
+    const base64Screenshot = screenshot && await FileSystem.readAsStringAsync(screenshot, { encoding: 'base64' })
+
+    try {
+      await api.post('feedbacks', {
+        type: feedbackType,
+        screenshot: `data:image/png;base64,${base64Screenshot}`,
+        comment: comment
+      })
+      onFeedbackSubmitted();
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setIsSendingFeedback(false);
+    }
   }
 
   return (
