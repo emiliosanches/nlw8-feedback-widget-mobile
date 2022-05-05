@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { captureScreen } from 'react-native-view-shot';
+import * as FileSystem from 'expo-file-system';
 import { ArrowLeft } from 'phosphor-react-native';
 import {
   View,
@@ -8,21 +9,26 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
+import { api } from '../../libs/api';
 import { theme } from '../../theme';
 import { feedbackTypes } from '../../utils/feedbackTypes';
 import { FeedbackType } from '../Widget';
 import { ScreenshotButton } from '../ScreenshotButton';
-
-import { styles } from './styles';
 import { Button } from '../Button';
 import { Copyrights } from '../Copyrights';
 
+import { styles } from './styles';
+
 interface FormProps {
-  feedbackType: FeedbackType
+  feedbackType: FeedbackType;
+  onFeedbackCancelled: () => void;
+  onFeedbackSubmitted: () => void;
 }
 
-export function Form({ feedbackType }: FormProps) {
+export function Form({ feedbackType, onFeedbackCancelled, onFeedbackSubmitted }: FormProps) {
+  const [isSendingFeedback, setIsSendingFeedback] = useState(false);
   const [screenshot, setScreenshot] = useState<string | null>(null);
+  const [comment, setComment] = useState('');
 
   const feedbackTypeInfo = feedbackTypes[feedbackType];
 
@@ -39,10 +45,14 @@ export function Form({ feedbackType }: FormProps) {
     setScreenshot(null)
   }
 
+  async function handleFeedbackSubmit() {
+    onFeedbackSubmitted();
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onFeedbackCancelled}>
           <ArrowLeft
             size={24}
             weight="bold"
@@ -65,6 +75,7 @@ export function Form({ feedbackType }: FormProps) {
         style={styles.input}
         placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
         placeholderTextColor={theme.colors.text_secondary}
+        onChangeText={setComment}
         multiline
       />
 
@@ -76,7 +87,8 @@ export function Form({ feedbackType }: FormProps) {
         />
 
         <Button
-          isLoading={false}
+          isLoading={isSendingFeedback}
+          onPress={handleFeedbackSubmit}
         />
       </View>
 
