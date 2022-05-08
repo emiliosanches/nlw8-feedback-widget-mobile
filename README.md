@@ -12,18 +12,18 @@ O sistema consiste em uma [aplicação web](https://github.com/emiliosanches/nlw
 * Redirecionamento de feedbacks para endereço de e-mail do administrador da aplicação
 
 #### 💡 Melhorias futuras (implementadas após o evento)
-* **Web (front end)**:
-  - [ ] Seleção de tema light/dark
-  - [ ] Dashboard de feedbacks recebidos:
-    - [ ] Tela de login
-    - [ ] Tela de listagem de feedbacks
+* **[Web (front end)](https://github.com/emiliosanches/nlw8-feedback-widget-mobile)**:
+  - Seleção de tema light/dark
+  - Dashboard de feedbacks recebidos:
+    - Tela de login
+    - Tela de listagem de feedbacks
 
-* **Server (back end)**
-  - [ ] Melhorar o corpo HTML do e-mail de feedback
-  - [ ] Validação de requests e tratamento de exeções
-  - [ ] Dashboard de feedbacks recebidos:
-    - [ ] Autenticação
-    - [ ] Endpoint autorizado de listagem de feedbacks
+* **[Server (back end)](https://github.com/emiliosanches/nlw8-feedback-widget-server)**
+  - Melhorar o corpo HTML do e-mail de feedback
+  - Validação de requests e tratamento de exeções
+  - Dashboard de feedbacks recebidos:
+    - Autenticação
+    - Endpoint autorizado de listagem de feedbacks
 
 * **Mobile App**
   - [ ] Seleção de tema light/dark
