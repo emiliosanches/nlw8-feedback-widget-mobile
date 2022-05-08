@@ -18,7 +18,6 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    //@ts-expect-error - There is a conflict between react 17 typings and expo-app-loading typings
     return <AppLoading />;
   }
 
