@@ -5,7 +5,7 @@ import {
   Text, 
   ActivityIndicator
 } from 'react-native';
-import { theme } from '../../theme';
+import { theme } from '../../theme/theme';
 
 import { styles } from './styles';
 

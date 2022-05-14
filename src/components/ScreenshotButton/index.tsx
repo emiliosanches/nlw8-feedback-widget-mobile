@@ -7,7 +7,7 @@ import {
 import { Camera, Trash } from 'phosphor-react-native';
 
 import { styles } from './styles';
-import { theme } from '../../theme';
+import { theme } from '../../theme/theme';
 
 interface ScreenshotButtonProps {
   screenshot: string | null;

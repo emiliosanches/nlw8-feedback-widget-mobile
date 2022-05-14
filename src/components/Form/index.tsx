@@ -10,7 +10,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 import { api } from '../../libs/api';
-import { theme } from '../../theme';
+import { theme } from '../../theme/theme';
 import { feedbackTypes } from '../../utils/feedbackTypes';
 import { FeedbackType } from '../Widget';
 import { ScreenshotButton } from '../ScreenshotButton';

@@ -6,7 +6,7 @@ import { ChatTeardropDots } from 'phosphor-react-native';
 import { Options } from '../Options';
 import { Form } from '../Form';
 import { Success } from '../Success';
-import { theme } from '../../theme';
+import { theme } from '../../theme/theme';
 import { feedbackTypes } from '../../utils/feedbackTypes';
 
 import { styles } from './styles';

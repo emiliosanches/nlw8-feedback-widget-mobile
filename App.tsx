@@ -6,7 +6,7 @@ import {
 } from '@expo-google-fonts/inter';
 import { StatusBar } from 'expo-status-bar';
 import { Widget } from './src/components/Widget';
-import { theme } from './src/theme';
+import { theme } from './src/theme/theme';
 import AppLoading from 'expo-app-loading';
 
 import 'react-native-gesture-handler';
